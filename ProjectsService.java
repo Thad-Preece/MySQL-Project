@@ -24,4 +24,21 @@ public class ProjectsService {
 				"Project with project ID=" + projectId + " does not exist."));
 	}
 
+	public void modifyProjectDetails(Project project) {
+		if(!projectsDao.modifyProjectDetails(project)) {
+			throw new dbException("Project with ID="
+					+ project.getProjectId() + " does not exist.");
+		}
+		
+	}
+
+	public void deleteProject(Integer projectId) {
+		if(!projectsDao.deleteProject(projectId)) {
+			throw new dbException("Project with ID=" + projectId + " doesn't exist.");
+		}
+		
+		
+		
+	}
+
 }
